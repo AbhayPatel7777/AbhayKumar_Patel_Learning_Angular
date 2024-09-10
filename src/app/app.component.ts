@@ -10,4 +10,6 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'first-assignment';
+  name :string= 'first-assignment';
+  address:string = 'first-assignment';
 }
