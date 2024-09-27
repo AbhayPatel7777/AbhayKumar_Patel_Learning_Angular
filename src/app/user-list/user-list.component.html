@@ -4,7 +4,7 @@
   <tr *ngFor="let item of userList; let A=index">
 
   <td colspan="6">
-    <app-user-list-item [item]="item" [ngClass]="{'even-item':A%2==0,'odd-item':A%2!=0}"]></app-user-list-item>
+    <app-user-list-item [item]="item" [ngClass]="{'even-item':A%2==0,'odd-item':A%2!=0}"></app-user-list-item>
   </td>
   </tr>
   </tbody>
