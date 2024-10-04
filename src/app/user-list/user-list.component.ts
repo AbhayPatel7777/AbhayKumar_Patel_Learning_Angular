@@ -3,6 +3,7 @@ import {User} from "../../share/models/User";
 import {UserListItemComponent} from "../user-list-item/user-list-item.component";
 import {NgClass, NgForOf} from "@angular/common";
 import {UserService} from "../services/user.service";
+import {userList} from "../../share/mockUser";
 
 @Component({
   selector: 'app-user-list',
@@ -33,4 +34,6 @@ export class UserListComponent implements OnInit{
   selectUser(user:User):void {
     this.selectedUser = user;
   }
+
+  protected readonly userList = userList;
 }
