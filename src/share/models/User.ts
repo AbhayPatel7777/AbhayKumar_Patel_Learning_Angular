@@ -4,5 +4,6 @@ export interface User{
   lastName: string,
   department: string,
   isAdmin?: boolean,
-  PhoneNumber: number
+  PhoneNumber: number,
+  images : string
 }

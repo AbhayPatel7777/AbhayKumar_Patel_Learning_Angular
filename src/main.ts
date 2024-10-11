@@ -4,12 +4,15 @@ import { AppComponent } from './app/app.component';
 import {provideRouter, Routes} from "@angular/router";
 import {UserListItemComponent} from "./app/user-list-item/user-list-item.component";
 import {UserListComponent} from "./app/user-list/user-list.component";
-import * as path from "node:path";
+import {PageNotFoundComponent} from "./app/page-not-found/page-not-found.component";
+import {ModifyListItemComponent} from "./app/modify-list-item/modify-list-item.component";
 
 const routes: Routes =[
 {path:'', redirectTo: '/userList', pathMatch: 'full'}, //default route
 { path: 'userList', component: UserListComponent },
 { path: 'userList/:id', component: UserListItemComponent },
+  {path:'modify-list-item', component: ModifyListItemComponent},
+  {path: '**', component:PageNotFoundComponent}
 ];
 bootstrapApplication(AppComponent, {providers:[provideRouter(routes)]})
   .then(r=>console.log("sucessful"));
