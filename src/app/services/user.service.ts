@@ -20,19 +20,22 @@ export class UserService {
   }
 
   updateUser(updateUser:User):Observable<User[]>{
-    const index = this.userList.findIndex(abh=>abh.firstName === updateUser.firstName);
+    const index = this.userList.findIndex(User=>User.firstName === updateUser.firstName);
     if (index !== -1) {
       this.userList[index]=updateUser;
     }
     return of(this.userList);
   }
   deleteUser(deletefirstName: string):Observable<User[]>{
-    this.userList = this.userList.filter(abh=>abh.firstName !== deletefirstName);
+    this.userList = this.userList.filter(User=>User.firstName !== deletefirstName);
     return of(this.userList);
   }
-  getUser(readfirstName:string):Observable<User | undefined>{
-    const hero =this.userList.find(abh=>abh.firstName === readfirstName);
-    return of(hero);
+
+  getUserbyId(id: number):Observable<User | undefined>{
+    return of(this.userList.find(User => User.id === id));
   }
 
+  generateNewId(): number {
+    return this.userList.length > 0 ? Math.max(...this.userList.map(userList => userList.id)) + 1 : 1;
+  }
 }
