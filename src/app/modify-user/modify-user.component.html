@@ -1,0 +1,40 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" >
+  <div class="form-group">
+    <label for="id">ID</label>
+    <input type="number" id="id" formControlName="id"/>
+  </div>
+
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input type="text" id="firstName" formControlName="firstName"/>
+  </div>
+
+  <div class="form-group">
+    <label for="lastName">Last Name</label>
+    <input type="text" id="lastName" formControlName="lastName"/>
+  </div>
+
+  <div class="form-group">
+    <label for="department">Department</label>
+    <input type="text" id="department" formControlName="department"/>
+  </div>
+
+  <div class="form-group">
+    <label for="PhoneNumber">Phone Number</label>
+    <input type="number" id="PhoneNumber" formControlName="PhoneNumber"/>
+  </div>
+
+  <div class="form-group">
+    <label for="images">Images</label>
+    <input type="text" id="images" formControlName="Images"/>
+  </div>
+
+  <div class="form-group">
+    <label for="isAdmin">Is Admin</label>
+    <input type="text" id="isAdmin" formControlName="isAdmin"/>
+  </div>
+
+  <button type="submit">Submit</button>
+
+
+</form>
