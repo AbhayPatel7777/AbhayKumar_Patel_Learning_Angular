@@ -4,6 +4,7 @@ import {UserListItemComponent} from "../user-list-item/user-list-item.component"
 import {NgClass, NgForOf} from "@angular/common";
 import {UserService} from "../services/user.service";
 import {userList} from "../../share/mockUser";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-user-list',
@@ -17,23 +18,26 @@ import {userList} from "../../share/mockUser";
   styleUrl: './user-list.component.css'
 })
 export class UserListComponent implements OnInit{
-  displayColumns:string[] = ['id', 'firstName', 'lastName', 'department', 'isAdmin?', 'PhoneNumber']
-  MarvelComics:User[]=[];
+  cars:User[]=[];
 
 
-  constructor(private userService:UserService) {
+  constructor(private userService:UserService, private router: Router) {
   }
   ngOnInit() {
     this.userService.getUsers().subscribe({
-      next:(data:User[])=> this.MarvelComics = data,
+      next:(data:User[])=> this.cars = data,
       error: err => console.log("Fetching Error",err),
       complete:() => console.log("data fetched"),
     })
   }
-  selectedUser?:User;
-  selectUser(user:User):void {
-    this.selectedUser = user;
-  }
+ delete(id: Number):void {
+   this.cars = this.cars.filter(car => car.id!==id);
+ }
+ edit(): void {
+   this.router.navigate(['/modify-list-item']);
+ }
+
 
   protected readonly userList = userList;
+  protected readonly UserService = UserService;
 }

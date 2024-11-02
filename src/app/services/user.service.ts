@@ -11,31 +11,28 @@ export class UserService {
 
   constructor() { }
   getUsers():Observable<User[]>{
-    return of(userList);
+    return of(this.userList);
   }
 
-  addUser(newUser:User):Observable<User[]>{
+  addUser(newUser:User):Observable<User>{
     this.userList.push(newUser);
-    return of(this.userList);
+    return of(newUser);
   }
 
-  updateUser(updateUser:User):Observable<User[]>{
+  updateUser(updateUser:User):Observable<User | undefined>{
     const index = this.userList.findIndex(User=>User.firstName === updateUser.firstName);
-    if (index !== -1) {
+    if (index > -1) {
       this.userList[index]=updateUser;
+      return of(updateUser);
     }
-    return of(this.userList);
-  }
-  deleteUser(deletefirstName: string):Observable<User[]>{
-    this.userList = this.userList.filter(User=>User.firstName !== deletefirstName);
-    return of(this.userList);
+    return of(undefined);
   }
 
   getUserbyId(id: number):Observable<User | undefined>{
     return of(this.userList.find(User => User.id === id));
   }
 
-  generateNewId(): number {
-    return this.userList.length > 0 ? Math.max(...this.userList.map(userList => userList.id)) + 1 : 1;
+  generateNewId() {
+    return this.userList.length >0 ? Math.max(...this.userList.map(userList => userList.id)) +1 : 1;
   }
 }
