@@ -5,6 +5,10 @@ import {UserListItemComponent} from "./app/user-list-item/user-list-item.compone
 import {UserListComponent} from "./app/user-list/user-list.component";
 import {PageNotFoundComponent} from "./app/page-not-found/page-not-found.component";
 import {ModifyUserComponent} from "./app/modify-user/modify-user.component";
+import {provideHttpClient} from "@angular/common/http";
+import {importProvidersFrom} from "@angular/core";
+import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
+import {InMemoryDataService} from "./app/services/in-memory-data.service";
 
 const routes: Routes =[
 {path:'', redirectTo: '/userList', pathMatch: 'full'}, //default route
@@ -13,5 +17,9 @@ const routes: Routes =[
   {path:'modify-list-item', component: ModifyUserComponent},
   {path: '**', component:PageNotFoundComponent}
 ];
-bootstrapApplication(AppComponent, {providers:[provideRouter(routes)]})
-  .then(r=>console.log("sucessful"));
+bootstrapApplication(AppComponent, {providers:[
+  provideHttpClient(),
+  provideRouter(routes),
+    importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{delay: 1000}))
+  ],
+}).catch((err) => console.error(err));

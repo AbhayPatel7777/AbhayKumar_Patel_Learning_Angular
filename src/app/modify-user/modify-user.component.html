@@ -19,15 +19,10 @@
     <input type="text" id="department" formControlName="department"/>
   </div>
 
-  <div class="form-group">
-    <label for="PhoneNumber">Phone Number</label>
-    <input type="number" id="PhoneNumber" formControlName="PhoneNumber"/>
-  </div>
-
-  <div class="form-group">
-    <label for="images">Images</label>
-    <input type="text" id="images" formControlName="Images"/>
-  </div>
+<!--  <div class="form-group">-->
+<!--    <label for="PhoneNumber">Phone Number</label>-->
+<!--    <input type="number" id="PhoneNumber" formControlName="PhoneNumber"/>-->
+<!--  </div>-->
 
   <div class="form-group">
     <label for="isAdmin">Is Admin</label>
@@ -38,3 +33,4 @@
 
 
 </form>
+<div *ngIf="error" class="error">{{ error }}</div>

@@ -7,10 +7,10 @@
       <p>Lastname: {{item.lastName}}</p>
       <p>isAdmin:{{item.isAdmin?'Yes':'No'}}</p>
       <p>department:{{item.department}}</p>
-      <p>Phonenumber: {{item.PhoneNumber}}</p>
       <button type="button" (click)="delete(item.id)">Delete</button>
       <button type="button" (click)="edit()">edit</button>
 
     </div>
+  <div *ngIf="error" class="error">{{error}}</div>
 
 </div>

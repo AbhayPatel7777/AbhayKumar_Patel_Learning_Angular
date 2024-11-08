@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {User} from "../../share/models/User";
-import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
-import {ActivatedRoute, Router} from "@angular/router";
-import {UserService} from "../services/user.service";
-import {NgIf} from "@angular/common";
+import { Component, OnInit } from '@angular/core';
+import { User } from "../../share/models/User";
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
+import { ActivatedRoute, Router } from "@angular/router";
+import { UserService } from "../services/user.service";
+import { NgIf } from "@angular/common";
 
 @Component({
   selector: 'app-modify-user',
@@ -14,58 +14,60 @@ import {NgIf} from "@angular/common";
     NgIf
   ],
   templateUrl: './modify-user.component.html',
-  styleUrl: './modify-user.component.css'
+  styleUrls: ['./modify-user.component.css']
 })
-export class ModifyUserComponent implements OnInit{
+export class ModifyUserComponent implements OnInit {
   userForm: FormGroup;
-  User : User | undefined;
+  user: User | undefined;
+  error: string | null = null;
 
   constructor(
-    private fb : FormBuilder,
+    private fb: FormBuilder,
     private route: ActivatedRoute,
-    private UserService: UserService,
+    private userService: UserService,
     private router: Router
   ) {
     this.userForm = this.fb.group({
-      id: ['',Validators.required],
-      firstName: ['',Validators.required],
-      lastName: ['',Validators.required],
+      id: [this.userService.generateNewId()],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
       department: [''],
-      PhoneNumber: ['',Validators.required],
+      phoneNumber: ['', Validators.required], // Adjusted casing to camelCase
       isAdmin: [false],
     });
   }
 
-  ngOnInit(): void{
+  ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    if (id){
-      this.UserService.getUserbyId(+id).subscribe(UserService=>{
-        if (UserService){
-         this.User=UserService;
-
-         this.userForm.patchValue(UserService);
+    if (id) {
+      this.userService.getUserbyId(+id).subscribe({
+        next: user => {
+          if (user) {
+            this.userForm.patchValue(user);
+          }
+        },
+        error: err => {
+          this.error = 'Error fetching user';
+          console.error('Error fetching user:', err);
         }
-      });
+        });
     }
   }
 
-  onSubmit():void{
-  const User: User = this.userForm.value;
+  onSubmit(): void {
+    if (this.userForm.valid) {
+      const user: User = this.userForm.value;
 
-  if (User.id){
-    this.UserService.updateUser(User);
-  }else {
-    const newId = this.UserService.generateNewId();
-    User.id = newId;
-    this.UserService.addUser(User);
+      if (user.id) {
+        this.userService.updateUser(user).subscribe(() => this.router.navigate(['/userList']));
+      } else {
+        user.id = this.userService.generateNewId();
+        this.userService.addUser(user).subscribe(() => this.router.navigate(['/userList']));
+      }
+    }
   }
 
-  this.router.navigate(['/userList'])
-  }
-
-
-  navigateToUserList(): void{
+  navigateToUserList(): void {
     this.router.navigate(['/userList']);
   }
 }
-

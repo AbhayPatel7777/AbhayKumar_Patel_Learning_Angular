@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from "../../share/models/User";
 import {UserListItemComponent} from "../user-list-item/user-list-item.component";
-import {NgClass, NgForOf} from "@angular/common";
+import {NgClass, NgForOf, NgIf} from "@angular/common";
 import {UserService} from "../services/user.service";
-import {userList} from "../../share/mockUser";
 import {Router} from "@angular/router";
+import {userList} from "../../share/mockUser";
 
 @Component({
   selector: 'app-user-list',
@@ -12,13 +12,15 @@ import {Router} from "@angular/router";
   imports: [
     UserListItemComponent,
     NgClass,
-    NgForOf
+    NgForOf,
+    NgIf
   ],
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.css'
 })
 export class UserListComponent implements OnInit{
   cars:User[]=[];
+  error : string | null = null;
 
 
   constructor(private userService:UserService, private router: Router) {
@@ -37,7 +39,5 @@ export class UserListComponent implements OnInit{
    this.router.navigate(['/modify-list-item']);
  }
 
-
   protected readonly userList = userList;
-  protected readonly UserService = UserService;
 }
