@@ -3,8 +3,7 @@
 
     <div class="user" *ngFor="let item of userList;">
       <p>ID:{{item.id}}</p>
-      <p>Firstname: {{item.firstName | titlecase}}</p>
-      <p>Lastname: {{item.lastName}}</p>
+      <p>Firstname: {{item.firstName  | titlecase}}</p>
       <p>isAdmin:{{item.isAdmin?'Yes':'No'}}</p>
       <p>department:{{item.department | uppercase}}</p>
       <p>Phone Number:{{item.PhoneNumber}}</p>
