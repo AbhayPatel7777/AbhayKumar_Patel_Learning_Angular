@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from "../../share/models/User";
 import {UserListItemComponent} from "../user-list-item/user-list-item.component";
-import {NgClass, NgForOf, NgIf} from "@angular/common";
+import {CurrencyPipe, NgClass, NgForOf, NgIf, TitleCasePipe, UpperCasePipe} from "@angular/common";
 import {UserService} from "../services/user.service";
 import {Router} from "@angular/router";
 import {userList} from "../../share/mockUser";
@@ -13,7 +13,10 @@ import {userList} from "../../share/mockUser";
     UserListItemComponent,
     NgClass,
     NgForOf,
-    NgIf
+    NgIf,
+    TitleCasePipe,
+    CurrencyPipe,
+    UpperCasePipe
   ],
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.css'

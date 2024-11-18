@@ -5,5 +5,6 @@ export interface User{
   department: string,
   isAdmin?: boolean,
   PhoneNumber: number,
-  images : string
+  images : string,
+  bankbalance : number
 }

@@ -13,7 +13,8 @@ export class InMemoryDataService implements InMemoryDbService {
           department: "Computer Programming",
           isAdmin: false,
           PhoneNumber: 87438573294232,
-          images: "/assets/mercedesCclass.webp"
+          images: "/assets/mercedesCclass.webp",
+          bankbalance: 890000
         },
         {
           id: 2,
@@ -22,7 +23,8 @@ export class InMemoryDataService implements InMemoryDbService {
           department: "Computer Programming",
           isAdmin: true,
           PhoneNumber: 383247264632,
-          images: "/assets/MustangGt.webp"
+          images: "/assets/MustangGt.webp",
+          bankbalance:87687383
         },
         {
           id: 3,
@@ -31,7 +33,8 @@ export class InMemoryDataService implements InMemoryDbService {
           department: "Computer Programming",
           isAdmin: false,
           PhoneNumber: 232333221221,
-          images: "/assets/Volvoxc90.avif"
+          images: "/assets/Volvoxc90.avif",
+          bankbalance:6562722
         },
         {
           id: 4,
@@ -40,7 +43,8 @@ export class InMemoryDataService implements InMemoryDbService {
           department: "Networking",
           isAdmin: false,
           PhoneNumber: 98738623992,
-          images: "/assets/Lexus.webp"
+          images: "/assets/Lexus.webp",
+          bankbalance: 72672992
         }
 
       ];
