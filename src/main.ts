@@ -13,13 +13,15 @@ import {InMemoryDataService} from "./app/services/in-memory-data.service";
 const routes: Routes =[
 {path:'', redirectTo: '/userList', pathMatch: 'full'}, //default route
 { path: 'userList', component: UserListComponent },
-{ path: 'userList/:id', component: UserListItemComponent },
-  {path:'modify-list-item', component: ModifyUserComponent},
-  {path: '**', component:PageNotFoundComponent}
-];
-bootstrapApplication(AppComponent, {providers:[
-  provideHttpClient(),
-  provideRouter(routes),
-    importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{delay: 1000}))
-  ],
-}).catch((err) => console.error(err));
+{ path: 'userList/:id',
+  loadComponent:()=>
+    import('./app/user-list-item/user-list-item.component').then(m=>m.UserListItemComponent) },
+  {path:'modify-list-item',
+  loadComponent:()=>
+  import('./app/modify-user/modify-user.component').then(m=>m.ModifyUserComponent)},
+  {path: '**',
+    loadComponent:()=>
+      import('./app/page-not-found/page-not-found.component').then(m=>m.PageNotFoundComponent)}
+]
+bootstrapApplication(AppComponent, {providers:[provideRouter(routes)]})
+  .then(r=>console.log('successful'));
