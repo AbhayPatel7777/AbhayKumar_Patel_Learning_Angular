@@ -3,10 +3,12 @@
 
     <div class="user" *ngFor="let item of userList;">
       <p>ID:{{item.id}}</p>
-      <p>Firstname: {{item.firstName}}</p>
+      <p>Firstname: {{item.firstName| uppercase}}</p>
       <p>Lastname: {{item.lastName}}</p>
+      <p>Date: {{item.date| date : 'longDate'}}</p>
       <p>isAdmin:{{item.isAdmin?'Yes':'No'}}</p>
       <p>department:{{item.department}}</p>
+      <p>budget:{{item.budget | currency : 'CAD'}}</p>
       <button type="button" (click)="delete(item.id)">Delete</button>
       <button type="button" (click)="edit()">edit</button>
 

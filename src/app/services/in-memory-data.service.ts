@@ -11,7 +11,9 @@ export class InMemoryDataService implements InMemoryDbService {
           firstName: "Abhay",
           lastName: "Patel",
           department: "Computer Programming",
+          date: new Date('2022-05-25'),
           isAdmin: false,
+          budget: 18000,
           PhoneNumber: 87438573294232,
           images: "/assets/mercedesCclass.webp"
         },
@@ -19,7 +21,9 @@ export class InMemoryDataService implements InMemoryDbService {
           id: 2,
           firstName: "Rushabh",
           lastName: "Parekh",
+          date: new Date('2022-05-15'),
           department: "Computer Programming",
+          budget: 15000,
           isAdmin: true,
           PhoneNumber: 383247264632,
           images: "/assets/MustangGt.webp"
@@ -29,7 +33,9 @@ export class InMemoryDataService implements InMemoryDbService {
           firstName: "Rohan",
           lastName: "Parmar",
           department: "Computer Programming",
+          date: new Date('2022-05-19'),
           isAdmin: false,
+          budget: 35000,
           PhoneNumber: 232333221221,
           images: "/assets/Volvoxc90.avif"
         },
@@ -39,6 +45,8 @@ export class InMemoryDataService implements InMemoryDbService {
           lastName: "Rathod",
           department: "Networking",
           isAdmin: false,
+          date: new Date('2022-07-19'),
+          budget: 75000,
           PhoneNumber: 98738623992,
           images: "/assets/Lexus.webp"
         }
