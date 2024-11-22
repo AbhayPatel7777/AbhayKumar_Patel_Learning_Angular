@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { ActivatedRoute, Router } from "@angular/router";
 import { UserService } from "../services/user.service";
 import { NgIf } from "@angular/common";
+import {HighlightOnFocusDirective} from "../directives/highlight-on-focus.directive";
 
 @Component({
   selector: 'app-modify-user',
@@ -11,7 +12,8 @@ import { NgIf } from "@angular/common";
   imports: [
     ReactiveFormsModule,
     FormsModule,
-    NgIf
+    NgIf,
+    HighlightOnFocusDirective
   ],
   templateUrl: './modify-user.component.html',
   styleUrls: ['./modify-user.component.css']

@@ -1,7 +1,7 @@
 <div class="container">
   <h2>Student List</h2>
 
-    <div class="user" *ngFor="let item of userList;">
+    <div class="user" *ngFor="let item of userList;" [appHoverHighlight]="'blue'">
       <p>ID:{{item.id}}</p>
       <p>Firstname: {{item.firstName| uppercase}}</p>
       <p>Lastname: {{item.lastName}}</p>

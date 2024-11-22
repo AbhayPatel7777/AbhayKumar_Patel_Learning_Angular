@@ -5,6 +5,7 @@ import {CurrencyPipe, DatePipe, NgClass, NgForOf, NgIf, UpperCasePipe} from "@an
 import {UserService} from "../services/user.service";
 import {Router} from "@angular/router";
 import {userList} from "../../share/mockUser";
+import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
 
 @Component({
   selector: 'app-user-list',
@@ -16,7 +17,8 @@ import {userList} from "../../share/mockUser";
     NgIf,
     CurrencyPipe,
     UpperCasePipe,
-    DatePipe
+    DatePipe,
+    HoverHighlightDirective
   ],
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.css'
