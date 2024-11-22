@@ -1,10 +1,10 @@
 export interface User{
+
   id: number,
   firstName: string,
   lastName: string,
   date : Date;
-  department: string,
-  budget : number;
+  DepartmentBudget: string;
   isAdmin?: boolean,
   PhoneNumber: number,
   images : string

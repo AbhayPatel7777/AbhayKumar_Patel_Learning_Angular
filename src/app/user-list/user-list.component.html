@@ -7,8 +7,7 @@
       <p>Lastname: {{item.lastName}}</p>
       <p>Date: {{item.date| date : 'longDate'}}</p>
       <p>isAdmin:{{item.isAdmin?'Yes':'No'}}</p>
-      <p>department:{{item.department}}</p>
-      <p>budget:{{item.budget | currency : 'CAD'}}</p>
+      <p>Department & Budget:{{item.DepartmentBudget}}</p>
       <button type="button" (click)="delete(item.id)">Delete</button>
       <button type="button" (click)="edit()">edit</button>
 
