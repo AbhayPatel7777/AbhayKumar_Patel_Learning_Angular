@@ -8,9 +8,10 @@
       <mat-list-item>Date: {{item.date| date : 'longDate'}}</mat-list-item>
       <mat-list-item>isAdmin:{{item.isAdmin?'Yes':'No'}}</mat-list-item>
       <mat-list-item>Department & Budget:{{item.DepartmentBudget}}</mat-list-item>
-      <button type="button" (click)="delete(item.id)">Delete</button>
-      <button type="button" (click)="edit()">edit</button>
-
+      <div class="button-group">
+      <button mat-raised-button color="primary" type="button" (click)="delete(item.id)" [appHoverHighlight]="'red'">Delete</button>
+      <button  mat-raised-button color="primary" type="button" (click)="edit(item.id)" [appHoverHighlight]="'red'">Edit</button>
+      </div>
     </mat-list>
   <div *ngIf="error" class="error">{{error}}</div>
 

@@ -43,7 +43,8 @@ export class UserListComponent implements OnInit{
  delete(id: Number):void {
    this.cars = this.cars.filter(car => car.id!==id);
  }
- edit(): void {
+
+  edit(id: number): void {
    this.router.navigate(['/modify-list-item']);
  }
 
