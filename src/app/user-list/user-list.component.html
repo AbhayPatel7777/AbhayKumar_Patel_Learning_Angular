@@ -1,17 +1,17 @@
 <div class="container">
   <h2>Student List</h2>
 
-    <div class="user" *ngFor="let item of userList;" [appHoverHighlight]="'blue'">
-      <p>ID:{{item.id}}</p>
-      <p>Firstname: {{item.firstName| uppercase}}</p>
-      <p>Lastname: {{item.lastName}}</p>
-      <p>Date: {{item.date| date : 'longDate'}}</p>
-      <p>isAdmin:{{item.isAdmin?'Yes':'No'}}</p>
-      <p>Department & Budget:{{item.DepartmentBudget}}</p>
+    <mat-list class="user" *ngFor="let item of userList" [routerLink]="['/item',item.id]"  [appHoverHighlight]="'blue'" role="list">
+      <mat-list-item>ID:{{item.id}}</mat-list-item>
+      <mat-list-item>Firstname: {{item.firstName| uppercase}}</mat-list-item>
+      <mat-list-item>Lastname: {{item.lastName}}</mat-list-item>
+      <mat-list-item>Date: {{item.date| date : 'longDate'}}</mat-list-item>
+      <mat-list-item>isAdmin:{{item.isAdmin?'Yes':'No'}}</mat-list-item>
+      <mat-list-item>Department & Budget:{{item.DepartmentBudget}}</mat-list-item>
       <button type="button" (click)="delete(item.id)">Delete</button>
       <button type="button" (click)="edit()">edit</button>
 
-    </div>
+    </mat-list>
   <div *ngIf="error" class="error">{{error}}</div>
 
 </div>

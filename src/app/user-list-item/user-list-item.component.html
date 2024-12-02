@@ -1,9 +1,13 @@
 <div *ngIf="item" class="item-list">
-  <h1>User List</h1>
-  <h2><strong>ID :</strong>{{item.id}}</h2>
-  <h2><strong>FirstName :</strong>{{item.firstName}}</h2>
-  <h2><strong>LastName :</strong>{{item.lastName}}</h2>
-  <h2><strong>Department & Budget :</strong>{{item.DepartmentBudget}}</h2>
-  <h2><strong>IsAdmin :</strong>{{item.isAdmin}}</h2>
-  <h2><strong>PhoneNumber :</strong>{{item.PhoneNumber}}</h2>
+ <mat-card class="item-list">
+  <mat-card-title>User List</mat-card-title>
+  <mat-card-content><strong>ID :</strong>{{item.id}}</mat-card-content>
+  <mat-card-content><strong>FirstName :</strong>{{item.firstName}}</mat-card-content>
+  <mat-card-content><strong>LastName :</strong>{{item.lastName}}</mat-card-content>
+  <mat-card-content><strong>Department & Budget :</strong>{{item.DepartmentBudget}}</mat-card-content>
+  <mat-card-content><strong>IsAdmin :</strong>{{item.isAdmin}}</mat-card-content>
+  <mat-card-content><strong>PhoneNumber :</strong>{{item.PhoneNumber}}</mat-card-content>
+  <p *ngIf="item .isAdmin==true">is there Admin:-Yes></p>
+  <p *ngIf="item .isAdmin==true">is there Admin:-No></p>
+  </mat-card>
 </div>

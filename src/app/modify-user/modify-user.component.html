@@ -1,36 +1,39 @@
 <form [formGroup]="userForm" (ngSubmit)="onSubmit()" >
-  <div class="form-group">
+  <mat-form-field appearance="outline" class="form-group" disabled>
     <label for="id">ID</label>
     <input type="number" id="id" formControlName="id" [appHighlightOnFocus]="'red'"/>
-  </div>
+  </mat-form-field>>
 
-  <div class="form-group">
+  <mat-form-field appearance="outline" class="form-group">
     <label for="firstName">First Name</label>
-    <input type="text" id="firstName" formControlName="firstName" [appHighlightOnFocus]="'red'"/>
-  </div>
+    <input type="text" id="firstName" formControlName="firstName" [appHighlightOnFocus]="'red'" matTooltip="firstName"/>
+  </mat-form-field>
 
-  <div class="form-group">
+  <mat-form-field appearance="outline" class="form-group">
     <label for="lastName">Last Name</label>
-    <input type="text" id="lastName" formControlName="lastName" [appHighlightOnFocus]="'red'"/>
-  </div>
+    <input type="text" id="lastName" formControlName="lastName" [appHighlightOnFocus]="'red'" matTooltip="lastName"/>
+  </mat-form-field>
 
-  <div class="form-group">
+  <mat-form-field appearance="outline" class="form-group">
     <label for="date">Date</label>
-    <input type="date" id="date" formControlName="date"[appHighlightOnFocus]="'red'"/>
-  </div>
+    <input type="date" id="date" formControlName="date"[appHighlightOnFocus]="'red'" matTooltip="date"/>
+  </mat-form-field>
 
-  <div class="form-group">
+  <mat-form-field appearance="outline" class="form-group">
     <label for="departmentBudget">Department Budget</label>
-    <input type="text" id="departmentBudget" formControlName="departmentBudget" [appHighlightOnFocus]="'red'"/>
-  </div>
+    <input type="text" id="departmentBudget" formControlName="departmentBudget" [appHighlightOnFocus]="'red'" matTooltip="departmentBudget"/>
+  </mat-form-field>
 
 
-  <div class="form-group">
+  <mat-form-field appearance="outline" class="form-group">
     <label for="isAdmin">Is Admin</label>
-    <input type="text" id="isAdmin" formControlName="isAdmin"/>
+    <input type="text" id="isAdmin" formControlName="isAdmin" matTooltip="isAdmin"/>
+  </mat-form-field>
+
+  <div class="button-group">
+    <button mat-raised-button color="primary" type="submit">Submit</button>
   </div>
 
-  <button type="submit">Submit</button>
 
 
 </form>

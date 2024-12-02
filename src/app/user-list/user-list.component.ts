@@ -3,9 +3,10 @@ import {User} from "../../share/models/User";
 import {UserListItemComponent} from "../user-list-item/user-list-item.component";
 import {CurrencyPipe, DatePipe, NgClass, NgForOf, NgIf, UpperCasePipe} from "@angular/common";
 import {UserService} from "../services/user.service";
-import {Router} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 import {userList} from "../../share/mockUser";
 import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
+import {MatListModule} from "@angular/material/list";
 
 @Component({
   selector: 'app-user-list',
@@ -18,7 +19,9 @@ import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
     CurrencyPipe,
     UpperCasePipe,
     DatePipe,
-    HoverHighlightDirective
+    HoverHighlightDirective,
+    MatListModule,
+    RouterLink
   ],
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.css'

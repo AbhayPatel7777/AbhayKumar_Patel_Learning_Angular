@@ -5,6 +5,8 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { UserService } from "../services/user.service";
 import { NgIf } from "@angular/common";
 import {HighlightOnFocusDirective} from "../directives/highlight-on-focus.directive";
+import {MatInputModule} from "@angular/material/input";
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 @Component({
   selector: 'app-modify-user',
@@ -13,7 +15,9 @@ import {HighlightOnFocusDirective} from "../directives/highlight-on-focus.direct
     ReactiveFormsModule,
     FormsModule,
     NgIf,
-    HighlightOnFocusDirective
+    HighlightOnFocusDirective,
+    MatInputModule,
+    MatTooltipModule
   ],
   templateUrl: './modify-user.component.html',
   styleUrls: ['./modify-user.component.css']
